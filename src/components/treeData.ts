@@ -52,6 +52,10 @@ const nodes = [
         value: "/config/database.js",
         label: "database.js",
       },
+      {
+        value: "/config/Rohit",
+        label: "Rohit",
+      },
     ],
   },
   {

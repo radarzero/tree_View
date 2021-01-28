@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import CheckboxTree from "react-checkbox-tree";
-import { Grid, Icon, Input, Segment } from "semantic-ui-react";
+import { Button, Divider, Icon, Input, Segment } from "semantic-ui-react";
 import nodes from "./treeData";
 import "react-checkbox-tree/lib/react-checkbox-tree.css";
 import "../App.css";
 
 export class Treeview extends Component {
   state = {
-    //  for any node you wanted to check box tick before hand then provide its value to checked array  
+    //  for any node you wanted to check box tick before hand then provide its value to checked array
     checked: [],
+    //  for any node you wanted to expanded before hand then provide its value to expanded array
     expanded: ["/app"],
     filterText: "",
     nodesFiltered: nodes,
     nodes,
+    clicked: { value: "" },
   };
 
   constructor(props: any) {
@@ -23,8 +25,12 @@ export class Treeview extends Component {
     this.onFilterChange = this.onFilterChange.bind(this);
     this.filterTree = this.filterTree.bind(this);
     this.filterNodes = this.filterNodes.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
-  //   high lighting function
+  onClick(clicked: any) {
+    this.setState({ clicked });
+  }
+  //   high lighting function over filter
   highLighter() {
     let SearachKey = this.state.filterText.toLocaleLowerCase();
     let nodes = document.getElementsByClassName("rct-title");
@@ -99,45 +105,57 @@ export class Treeview extends Component {
   }
 
   render() {
-    const { checked, expanded, filterText, nodesFiltered } = this.state;
+    const {
+      checked,
+      expanded,
+      filterText,
+      nodesFiltered,
+      clicked,
+    } = this.state;
+    const notClickedText = "(none)";
 
     return (
-      <div className="controller">
-        <Grid>
-          <Grid.Row>
-            <Grid.Column width={4}>
-              <Segment id="search-bar">
-                <Input
-                  icon={<Icon name="search" inverted circular link />}
-                  placeholder="Search..."
-                  className="filter-text"
-                  type="text"
-                  value={filterText}
-                  onChange={this.onFilterChange}
-                />
-              </Segment>
+      <>
+        <Segment style={{ float: "right", marginRight: "550px" }}>
+          <strong>Clicked Node</strong>: {clicked.value || notClickedText}
+        </Segment>
+        <div className="controller">
+          <Segment>
+            <Input
+              icon={<Icon name="search" />}
+              placeholder="Search..."
+              className="filter-text"
+              type="text"
+              value={filterText}
+              onChange={this.onFilterChange}
+            />
 
-              <Segment id="tree-view">
-                {this.state.nodesFiltered.length ? (
-                  <></>
-                ) : (
-                  <span style={{ color: "red" }}>no match found</span>
-                )}
-                <CheckboxTree
-                  checked={checked}
-                  expanded={expanded}
-                  iconsClass="fa5"
-                  nodes={nodesFiltered}
-                  onCheck={this.onCheck}
-                  onExpand={this.onExpand}
-                  showExpandAll
-                  onlyLeafCheckboxes
-                />
-              </Segment>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </div>
+            <CheckboxTree
+              checked={checked}
+              expanded={expanded}
+              iconsClass="fa5"
+              nodes={nodesFiltered}
+              onCheck={this.onCheck}
+              onExpand={this.onExpand}
+              showExpandAll
+              onClick={this.onClick}
+            />
+            {this.state.nodesFiltered.length ? (
+              <></>
+            ) : (
+              <span id="no-match">
+                <br />
+                <Icon name="x" />
+                no match found
+              </span>
+            )}
+            <Divider />
+            <Button primary style={{ marginLeft: "60%" }}>
+              View More
+            </Button>
+          </Segment>
+        </div>
+      </>
     );
   }
 }

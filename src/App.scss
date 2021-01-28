@@ -1,26 +1,25 @@
 $sideBar-color: #aee6e6;
 
 .controller {
-  margin-top: 1%;
-  margin-left: 1%;
-  border: 3px,soilid,grey;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
-#search-bar {
-  background: $sideBar-color;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // todo
-}
-#tree-view {
-  height: 82vh;
-  padding: 3px;
-  background: $sideBar-color;
-  .rct-node-icon {
-    color: none !important;
-  }
+.rct-node-icon {
+  color: yellow;
 }
 .high-light {
-  background: rgb(204, 209, 204);
+  background: rgb(236, 234, 81);
+}
+
+.rct-options {
+  margin-top: -30px;
+}
+.controller {
+  width: 25%;
+}
+#no-match {
+  color: red;
+  font-family: "Londrina Solid", Regular;
+  font-size: 1.7rem;
 }
