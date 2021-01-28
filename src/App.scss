@@ -7,10 +7,13 @@ $sideBar-color:#a0c1b8;
 
 #search-bar{
     background: $sideBar-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     // todo
 }
 #tree-view{
-    height: 60vh;
+    height: 82vh;
     padding: 3px;
     background: $sideBar-color;
 

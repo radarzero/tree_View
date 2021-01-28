@@ -47,7 +47,7 @@ export class Treeview extends Component {
     }
   }
   componentDidUpdate() {
-   this.highLighter();
+    this.highLighter();
   }
 
   // ..............
@@ -61,7 +61,10 @@ export class Treeview extends Component {
   }
 
   onFilterChange(e: any) {
-    this.setState({ filterText: e.target.value }, this.filterTree);
+    this.setState(
+      { filterText: e.target.value.trimStart().trimEnd() },
+      this.filterTree
+    );
   }
 
   filterTree() {
@@ -116,7 +119,13 @@ export class Treeview extends Component {
                   onChange={this.onFilterChange}
                 />
               </Segment>
+
               <Segment id="tree-view">
+                {this.state.nodesFiltered.length ? (
+                  <></>
+                ) : (
+                  <span style={{ color: "red" }}>no match found</span>
+                )}
                 <CheckboxTree
                   checked={checked}
                   expanded={expanded}
@@ -125,6 +134,7 @@ export class Treeview extends Component {
                   onCheck={this.onCheck}
                   onExpand={this.onExpand}
                   showExpandAll
+                  onlyLeafCheckboxes
                 />
               </Segment>
             </Grid.Column>

@@ -5,10 +5,19 @@
 
 #search-bar {
   background: #a0c1b8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #tree-view {
-  height: 60vh;
+  height: 82vh;
   padding: 3px;
   background: #a0c1b8;
 }
