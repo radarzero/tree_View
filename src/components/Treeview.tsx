@@ -3,15 +3,12 @@ import CheckboxTree from "react-checkbox-tree";
 import { Grid, Icon, Input, Segment } from "semantic-ui-react";
 import nodes from "./treeData";
 import "react-checkbox-tree/lib/react-checkbox-tree.css";
+import "../App.css";
+
 export class Treeview extends Component {
   state = {
-    checked: [
-      "/app/Http/Controllers/WelcomeController.js",
-      "/app/Http/routes.js",
-      "/public/assets/style.css",
-      "/public/index.html",
-      "/.gitignore",
-    ],
+    //  for any node you wanted to check box tick before hand then provide its value to checked array  
+    checked: [],
     expanded: ["/app"],
     filterText: "",
     nodesFiltered: nodes,

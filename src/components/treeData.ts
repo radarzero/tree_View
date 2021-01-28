@@ -1,79 +1,90 @@
+// All node objects must have a unique value. 
+// This value is serialized into the checked and expanded arrays(props that are passed to tree creater) and 
+//is  also used for performance optimizations.
+// other than value it can have label and children.
+
 const nodes = [
-    {
-        value: '/app',
-        label: 'app',
+  {
+    value: "/app",
+    label: "app",
+    children: [
+      {
+        value: "/app/Http",
+        label: "Http",
         children: [
-            {
-                value: '/app/Http',
-                label: 'Http',
-                children: [
-                    {
-                        value: '/app/Http/Controllers',
-                        label: 'Controllers',
-                        children: [{
-                            value: '/app/Http/Controllers/WelcomeController.js',
-                            label: 'WelcomeController.js',
-                        }],
-                    },
-                    {
-                        value: '/app/Http/routes.js',
-                        label: 'routes.js',
-                    },
-                ],
-            },
-            {
-                value: '/app/Providers',
-                label: 'Providers',
-                children: [{
-                    value: '/app/Http/Providers/EventServiceProvider.js',
-                    label: 'EventServiceProvider.js',
-                }],
-            },
+          {
+            value: "/app/Http/Controllers",
+            label: "Controllers",
+            children: [
+              {
+                value: "/app/Http/Controllers/WelcomeController.js",
+                label: "WelcomeController.js",
+              },
+            ],
+          },
+          {
+            value: "/app/Http/routes.js",
+            label: "routes.js",
+          },
         ],
-    },
-    {
-        value: '/config',
-        label: 'config',
+      },
+      {
+        value: "/app/Providers",
+        label: "Providers",
         children: [
-            {
-                value: '/config/app.js',
-                label: 'app.js',
-            },
-            {
-                value: '/config/database.js',
-                label: 'database.js',
-            },
+          {
+            value: "/app/Http/Providers/EventServiceProvider.js",
+            label: "EventServiceProvider.js",
+          },
         ],
-    },
-    {
-        value: '/public',
-        label: 'public',
+      },
+    ],
+  },
+  {
+    value: "/config",
+    label: "config",
+    children: [
+      {
+        value: "/config/app.js",
+        label: "app.js",
+      },
+      {
+        value: "/config/database.js",
+        label: "database.js",
+      },
+    ],
+  },
+  {
+    value: "/public",
+    label: "public",
+    children: [
+      {
+        value: "/public/assets/",
+        label: "assets",
         children: [
-            {
-                value: '/public/assets/',
-                label: 'assets',
-                children: [{
-                    value: '/public/assets/style.css',
-                    label: 'style.css',
-                }],
-            },
-            {
-                value: '/public/index.html',
-                label: 'index.html',
-            },
+          {
+            value: "/public/assets/style.css",
+            label: "style.css",
+          },
         ],
-    },
-    {
-        value: '/.env',
-        label: '.env',
-    },
-    {
-        value: '/.gitignore',
-        label: '.gitignore',
-    },
-    {
-        value: '/README.md',
-        label: 'README.md',
-    },
+      },
+      {
+        value: "/public/index.html",
+        label: "index.html",
+      },
+    ],
+  },
+  {
+    value: "/.env",
+    label: ".env",
+  },
+  {
+    value: "/.gitignore",
+    label: ".gitignore",
+  },
+  {
+    value: "/README.md",
+    label: "README.md",
+  },
 ];
- export default nodes;
+export default nodes;

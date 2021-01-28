@@ -1,23 +1,26 @@
-$sideBar-color:#a0c1b8;
+$sideBar-color: #aee6e6;
 
-.controller{
-    margin-top: 1%;
-    margin-left: 1%;
+.controller {
+  margin-top: 1%;
+  margin-left: 1%;
+  border: 3px,soilid,grey;
 }
 
-#search-bar{
-    background: $sideBar-color;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    // todo
+#search-bar {
+  background: $sideBar-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // todo
 }
-#tree-view{
-    height: 82vh;
-    padding: 3px;
-    background: $sideBar-color;
-
+#tree-view {
+  height: 82vh;
+  padding: 3px;
+  background: $sideBar-color;
+  .rct-node-icon {
+    color: none !important;
+  }
 }
-.high-light{
-    background: rgb(204, 209, 204);
+.high-light {
+  background: rgb(204, 209, 204);
 }

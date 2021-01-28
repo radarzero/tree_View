@@ -1,10 +1,11 @@
 .controller {
   margin-top: 1%;
   margin-left: 1%;
+  border: 3px,soilid,grey;
 }
 
 #search-bar {
-  background: #a0c1b8;
+  background: #aee6e6;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19,7 +20,11 @@
 #tree-view {
   height: 82vh;
   padding: 3px;
-  background: #a0c1b8;
+  background: #aee6e6;
+}
+
+#tree-view .rct-node-icon {
+  color: none !important;
 }
 
 .high-light {
