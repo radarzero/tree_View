@@ -1,8 +1,20 @@
+$sideBar-color:#a0c1b8;
+
 .controller{
     margin-top: 1%;
     margin-left: 1%;
 }
 
 #search-bar{
+    background: $sideBar-color;
     // todo
+}
+#tree-view{
+    height: 60vh;
+    padding: 3px;
+    background: $sideBar-color;
+
+}
+.high-light{
+    background: rgb(204, 209, 204);
 }

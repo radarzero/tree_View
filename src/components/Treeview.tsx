@@ -27,6 +27,30 @@ export class Treeview extends Component {
     this.filterTree = this.filterTree.bind(this);
     this.filterNodes = this.filterNodes.bind(this);
   }
+  //   high lighting function
+  highLighter() {
+    let SearachKey = this.state.filterText.toLocaleLowerCase();
+    let nodes = document.getElementsByClassName("rct-title");
+    if (!(SearachKey === "")) {
+      for (let i = 0; i < nodes.length; i++) {
+        if (nodes[i].innerHTML.toLocaleLowerCase().includes(SearachKey)) {
+          nodes[i].classList.add("high-light");
+        } else {
+          nodes[i].classList.remove("high-light");
+        }
+      }
+    }
+    if (SearachKey === "") {
+      for (let i = 0; i < nodes.length; i++) {
+        nodes[i].classList.remove("high-light");
+      }
+    }
+  }
+  componentDidUpdate() {
+   this.highLighter();
+  }
+
+  // ..............
 
   onCheck(checked: any) {
     this.setState({ checked });
@@ -92,7 +116,7 @@ export class Treeview extends Component {
                   onChange={this.onFilterChange}
                 />
               </Segment>
-              <Segment>
+              <Segment id="tree-view">
                 <CheckboxTree
                   checked={checked}
                   expanded={expanded}

@@ -2,4 +2,18 @@
   margin-top: 1%;
   margin-left: 1%;
 }
+
+#search-bar {
+  background: #a0c1b8;
+}
+
+#tree-view {
+  height: 60vh;
+  padding: 3px;
+  background: #a0c1b8;
+}
+
+.high-light {
+  background: #ccd1cc;
+}
 /*# sourceMappingURL=App.css.map */
