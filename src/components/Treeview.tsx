@@ -114,7 +114,7 @@ export class Treeview extends Component {
     return (
       <>
         <Segment
-          style={{ float: "right", marginRight: "500px", width: "270px" }}
+          style={{ float: "right", marginRight: "600px", width: "270px" }}
         >
           <List bulleted>
             <List.Item>

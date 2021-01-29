@@ -4,8 +4,21 @@ body {
 .controller {
   margin-top: 10px;
   margin-left: 10px;
-}
-// for node icon
+  width: 400px;
+  // styling for no match found text
+  .no-match {
+    color: red;
+    font-family: "Londrina Solid", Regular;
+    font-size: 1.7rem;
+  }
+  #check-box-tree {
+    margin: 1rem;
+  }
+  .view-segement {
+    height: 60vh;
+    overflow-y: scroll;
+  }
+  // for node icon
 .rct-node-icon {
   color: rgb(43, 40, 40);
 }
@@ -16,20 +29,5 @@ body {
 .rct-options {
   margin-top: -44px;
 }
+}
 
-.controller {
-  width: 30%;
-}
-// styling for no match found text
-.no-match {
-  color: red;
-  font-family: "Londrina Solid", Regular;
-  font-size: 1.7rem;
-}
-#check-box-tree {
-  margin: 1rem;
-}
-.view-segement {
-  height: 60vh;
-  overflow-y: scroll;
-}

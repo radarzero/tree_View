@@ -5,36 +5,33 @@ body {
 .controller {
   margin-top: 10px;
   margin-left: 10px;
+  width: 400px;
 }
 
-.rct-node-icon {
-  color: #2b2828;
-}
-
-.high-light {
-  background: #ecea51;
-}
-
-.rct-options {
-  margin-top: -44px;
-}
-
-.controller {
-  width: 30%;
-}
-
-.no-match {
+.controller .no-match {
   color: red;
   font-family: "Londrina Solid", Regular;
   font-size: 1.7rem;
 }
 
-#check-box-tree {
+.controller #check-box-tree {
   margin: 1rem;
 }
 
-.view-segement {
+.controller .view-segement {
   height: 60vh;
   overflow-y: scroll;
+}
+
+.controller .rct-node-icon {
+  color: #2b2828;
+}
+
+.controller .high-light {
+  background: #ecea51;
+}
+
+.controller .rct-options {
+  margin-top: -44px;
 }
 /*# sourceMappingURL=App.css.map */
