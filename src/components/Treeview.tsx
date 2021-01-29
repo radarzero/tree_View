@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CheckboxTree from "react-checkbox-tree";
-import { Button, Divider, Icon, Input, Segment } from "semantic-ui-react";
+import { Button, Icon, Input, Segment } from "semantic-ui-react";
 import nodes from "./treeData";
 import "react-checkbox-tree/lib/react-checkbox-tree.css";
 import "../App.css";
@@ -15,6 +15,8 @@ export class Treeview extends Component {
     nodesFiltered: nodes,
     nodes,
     clicked: { value: "" },
+    counter: 3,
+    arr:
   };
 
   constructor(props: any) {
@@ -27,6 +29,7 @@ export class Treeview extends Component {
     this.filterNodes = this.filterNodes.bind(this);
     this.onClick = this.onClick.bind(this);
   }
+
   onClick(clicked: any) {
     this.setState({ clicked });
   }
@@ -54,6 +57,14 @@ export class Treeview extends Component {
   }
 
   // ..............
+  //   .....handel view more
+  handleViewMore() {
+   let arr=nodes.filter((item)=>item.index<3);
+   console.log(arr);
+   
+
+      
+  }
 
   onCheck(checked: any) {
     this.setState({ checked });
@@ -105,22 +116,12 @@ export class Treeview extends Component {
   }
 
   render() {
-    const {
-      checked,
-      expanded,
-      filterText,
-      nodesFiltered,
-      clicked,
-    } = this.state;
-    const notClickedText = "(none)";
+    const { checked, expanded, filterText, nodesFiltered } = this.state;
 
     return (
       <>
-        <Segment style={{ float: "right", marginRight: "550px" }}>
-          <strong>Clicked Node</strong>: {clicked.value || notClickedText}
-        </Segment>
         <div className="controller">
-          <Segment>
+          <Segment className="view-segement">
             <Input
               icon={<Icon name="search" />}
               placeholder="Search..."
@@ -129,31 +130,33 @@ export class Treeview extends Component {
               value={filterText}
               onChange={this.onFilterChange}
             />
+            <div id="check-box-tree">
+              <CheckboxTree
+                checked={checked}
+                expanded={expanded}
+                iconsClass="fa5"
+                nodes={nodesFiltered}
+                onCheck={this.onCheck}
+                onExpand={this.onExpand}
+                showExpandAll
+                onClick={this.onClick}
+              />
+            </div>
 
-            <CheckboxTree
-              checked={checked}
-              expanded={expanded}
-              iconsClass="fa5"
-              nodes={nodesFiltered}
-              onCheck={this.onCheck}
-              onExpand={this.onExpand}
-              showExpandAll
-              onClick={this.onClick}
-            />
             {this.state.nodesFiltered.length ? (
               <></>
             ) : (
-              <span id="no-match">
+              <span className="no-match">
                 <br />
                 <Icon name="x" />
                 no match found
               </span>
             )}
-            <Divider />
-            <Button primary style={{ marginLeft: "60%" }}>
-              View More
-            </Button>
           </Segment>
+          {/* <span className="no-match">{checked.map((item)=><p>{item}</p>)}</span> */}
+          <Button attached="bottom" primary onClick={this.handleViewMore}>
+            view more
+          </Button>
         </div>
       </>
     );

@@ -1,25 +1,33 @@
-$sideBar-color: #aee6e6;
-
+body{
+  overflow: hidden;
+}
 .controller {
   margin-top: 10px;
   margin-left: 10px;
 }
 
 .rct-node-icon {
-  color: yellow;
+  color: rgb(17, 17, 17);
 }
 .high-light {
   background: rgb(236, 234, 81);
 }
 
 .rct-options {
-  margin-top: -30px;
+  margin-top: -44px;
 }
 .controller {
-  width: 25%;
+  width: 30%;
 }
-#no-match {
+.no-match {
   color: red;
   font-family: "Londrina Solid", Regular;
   font-size: 1.7rem;
+}
+#check-box-tree {
+  margin: 1rem;
+}
+.view-segement{
+  height: 60vh;
+  overflow-y: scroll;
 }
