@@ -1,24 +1,26 @@
-body{
+body {
   overflow: hidden;
 }
 .controller {
   margin-top: 10px;
   margin-left: 10px;
 }
-
+// for node icon
 .rct-node-icon {
-  color: rgb(17, 17, 17);
+  color: rgb(43, 40, 40);
 }
 .high-light {
   background: rgb(236, 234, 81);
 }
-
+// for expand and collapsed button
 .rct-options {
   margin-top: -44px;
 }
+
 .controller {
   width: 30%;
 }
+// styling for no match found text
 .no-match {
   color: red;
   font-family: "Londrina Solid", Regular;
@@ -27,7 +29,7 @@ body{
 #check-box-tree {
   margin: 1rem;
 }
-.view-segement{
+.view-segement {
   height: 60vh;
   overflow-y: scroll;
 }

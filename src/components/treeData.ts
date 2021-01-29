@@ -1,41 +1,41 @@
 // All node objects must have a unique value.
 // This value is serialized into the checked and expanded arrays(props that are passed to tree creater) and
-//is  also used for performance optimizations.
-// other than value it can have label and children.
+// is  also used for performance optimizations.
+// other than value it have label and children.
 
 const nodes = [
   {
-    value: "/app",
+    value: "app",
     label: "app",
-    index:0,
+    index: 0,
 
     children: [
       {
-        value: "/app/Http",
+        value: "Http",
         label: "Http",
         children: [
           {
-            value: "/app/Http/Controllers",
+            value: "Controllers",
             label: "Controllers",
             children: [
               {
-                value: "/app/Http/Controllers/WelcomeController.js",
+                value: "WelcomeController.js",
                 label: "WelcomeController.js",
               },
             ],
           },
           {
-            value: "/app/Http/routes.js",
+            value: "routes.js",
             label: "routes.js",
           },
         ],
       },
       {
-        value: "/app/Providers",
+        value: "Providers",
         label: "Providers",
         children: [
           {
-            value: "/app/Http/Providers/EventServiceProvider.js",
+            value: "EventServiceProvider.js",
             label: "EventServiceProvider.js",
           },
         ],
@@ -43,59 +43,59 @@ const nodes = [
     ],
   },
   {
-    value: "/config",
+    value: "config",
     label: "config",
-    index:1,
+    index: 1,
     children: [
       {
-        value: "/config/app.js",
+        value: "app.js",
         label: "app.js",
       },
       {
-        value: "/config/database.js",
+        value: "database.js",
         label: "database.js",
       },
       {
-        value: "/config/Rohit",
+        value: "Rohit",
         label: "Rohit",
       },
     ],
   },
   {
-    value: "/public",
+    value: "public",
     label: "public",
-    index:2,
+    index: 2,
     children: [
       {
-        value: "/public/assets/",
+        value: "assets",
         label: "assets",
         children: [
           {
-            value: "/public/assets/style.css",
+            value: "style.css",
             label: "style.css",
           },
         ],
       },
       {
-        value: "/public/index.html",
+        value: "index.html",
         label: "index.html",
       },
     ],
   },
   {
-    value: "/.env",
+    value: ".env",
     label: ".env",
-    index:3,
+    index: 3,
   },
   {
-    value: "/.gitignore",
+    value: ".gitignore",
     label: ".gitignore",
-    index:4,
+    index: 4,
   },
   {
-    value: "/README.md",
+    value: "README.md",
     label: "README.md",
-    index:5,
+    index: 5,
   },
 ];
 export default nodes;

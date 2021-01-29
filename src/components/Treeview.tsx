@@ -1,22 +1,18 @@
 import React, { Component } from "react";
 import CheckboxTree from "react-checkbox-tree";
-import { Button, Icon, Input, Segment } from "semantic-ui-react";
+import { Button, Icon, Input, List, Segment } from "semantic-ui-react";
 import nodes from "./treeData";
 import "react-checkbox-tree/lib/react-checkbox-tree.css";
 import "../App.css";
 
 export class Treeview extends Component {
   state = {
-    //  for any node you wanted to check box tick before hand then provide its value to checked array
-    checked: [],
-    //  for any node you wanted to expanded before hand then provide its value to expanded array
-    expanded: ["/app"],
+    checked: [], //for any node you wanted to check box tick before hand then provide its value to checked array
+    expanded: ["app"], //for any node you wanted to expanded before hand then provide its value to expanded array
     filterText: "",
     nodesFiltered: nodes,
     nodes,
-    clicked: { value: "" },
-    counter: 3,
-    arr:
+    clicked: {},
   };
 
   constructor(props: any) {
@@ -29,11 +25,12 @@ export class Treeview extends Component {
     this.filterNodes = this.filterNodes.bind(this);
     this.onClick = this.onClick.bind(this);
   }
-
+  // method to update the state of  the tree node(selected or not selected)
+  //   it contain single value in Object(it is diffrent from check box selection)
   onClick(clicked: any) {
     this.setState({ clicked });
   }
-  //   high lighting function over filter
+  // method to high-light tree nodes over filter-text
   highLighter() {
     let SearachKey = this.state.filterText.toLocaleLowerCase();
     let nodes = document.getElementsByClassName("rct-title");
@@ -52,28 +49,24 @@ export class Treeview extends Component {
       }
     }
   }
+  //   lifecycle method to trigger highLighting method on change of filter-text value
   componentDidUpdate() {
     this.highLighter();
   }
 
-  // ..............
-  //   .....handel view more
+  // method to handle view more
   handleViewMore() {
-   let arr=nodes.filter((item)=>item.index<3);
-   console.log(arr);
-   
-
-      
+    console.log("view more function");
   }
-
+  // method to update state of all the tree nodes(Checked or UnChecked)
   onCheck(checked: any) {
     this.setState({ checked });
   }
-
+  // method to update state of only parent nodes(Expanded or not Expanded)
   onExpand(expanded: any) {
     this.setState({ expanded });
   }
-
+  // Filtering Methods these three method combine gives filtering functionality
   onFilterChange(e: any) {
     this.setState(
       { filterText: e.target.value.trimStart().trimEnd() },
@@ -114,12 +107,28 @@ export class Treeview extends Component {
 
     return filtered;
   }
-
+  // ..........................
   render() {
     const { checked, expanded, filterText, nodesFiltered } = this.state;
 
     return (
       <>
+        <Segment
+          style={{ float: "right", marginRight: "500px", width: "270px" }}
+        >
+          <List bulleted>
+            <List.Item>
+              <List.Header> Selected Node:</List.Header>
+
+              <List.List>
+                {checked.map((item) => (
+                  <List.Item>{item}</List.Item>
+                ))}
+              </List.List>
+            </List.Item>
+          </List>
+        </Segment>
+
         <div className="controller">
           <Segment className="view-segement">
             <Input
@@ -153,7 +162,6 @@ export class Treeview extends Component {
               </span>
             )}
           </Segment>
-          {/* <span className="no-match">{checked.map((item)=><p>{item}</p>)}</span> */}
           <Button attached="bottom" primary onClick={this.handleViewMore}>
             view more
           </Button>
