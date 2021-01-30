@@ -4,7 +4,7 @@ body {
 .controller {
   margin-top: 10px;
   margin-left: 10px;
-  width: 400px;
+  width: 300px;
   // styling for no match found text
   .no-match {
     color: red;
@@ -12,22 +12,58 @@ body {
     font-size: 1.7rem;
   }
   #check-box-tree {
-    margin: 1rem;
+    position: absolute;
+    margin-top: 0.5rem;
+    margin-left: -0.6rem;
+    z-index: 0;
   }
   .view-segement {
-    height: 60vh;
-    overflow-y: scroll;
+    position: absolute;
+    z-index: 1;
+    height: 70vh;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  #search-input {
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
   }
   // for node icon
-.rct-node-icon {
-  color: rgb(43, 40, 40);
-}
-.high-light {
-  background: rgb(236, 234, 81);
-}
-// for expand and collapsed button
-.rct-options {
-  margin-top: -44px;
-}
-}
+  .rct-node-icon {
+    font-size: 0.9rem;
+    color: rgb(43, 40, 40);
+  }
+  .rct-icon {
+    font-size: 0.9rem;
+  }
+  .rct-icon-expand-all {
+    font-size: 1.2rem;
+  }
+  .rct-icon-collapse-all {
+    font-size: 1.2rem;
+  }
+  .high-light {
+    background: rgb(236, 234, 81);
+  }
+  // for expand and collapsed button
+  .rct-options {
+    position: fixed;
 
+    top: 35px;
+    left: 230px;
+    height: 20px;
+    z-index: -1;
+  }
+  .rct-text {
+    margin-right: 20px;
+  }
+  .rct-title {
+    font-size: 0.9rem;
+  }
+  .rct-collapse *,
+  .rct-checkbox *,
+  .rct-node-icon * {
+    width: 5px;
+  }
+}

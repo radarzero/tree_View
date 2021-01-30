@@ -5,7 +5,7 @@ body {
 .controller {
   margin-top: 10px;
   margin-left: 10px;
-  width: 400px;
+  width: 300px;
 }
 
 .controller .no-match {
@@ -15,16 +15,41 @@ body {
 }
 
 .controller #check-box-tree {
-  margin: 1rem;
+  position: absolute;
+  margin-top: 0.5rem;
+  margin-left: -0.6rem;
+  z-index: 0;
 }
 
 .controller .view-segement {
-  height: 60vh;
-  overflow-y: scroll;
+  position: absolute;
+  z-index: 1;
+  height: 70vh;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.controller #search-input {
+  border-top: hidden;
+  border-right: hidden;
+  border-left: hidden;
 }
 
 .controller .rct-node-icon {
+  font-size: 0.9rem;
   color: #2b2828;
+}
+
+.controller .rct-icon {
+  font-size: 0.9rem;
+}
+
+.controller .rct-icon-expand-all {
+  font-size: 1.2rem;
+}
+
+.controller .rct-icon-collapse-all {
+  font-size: 1.2rem;
 }
 
 .controller .high-light {
@@ -32,6 +57,24 @@ body {
 }
 
 .controller .rct-options {
-  margin-top: -44px;
+  position: fixed;
+  top: 35px;
+  left: 230px;
+  height: 20px;
+  z-index: -1;
+}
+
+.controller .rct-text {
+  margin-right: 20px;
+}
+
+.controller .rct-title {
+  font-size: 0.9rem;
+}
+
+.controller .rct-collapse *,
+.controller .rct-checkbox *,
+.controller .rct-node-icon * {
+  width: 5px;
 }
 /*# sourceMappingURL=App.css.map */

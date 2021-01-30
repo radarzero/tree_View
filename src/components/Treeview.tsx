@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import CheckboxTree from "react-checkbox-tree";
-import { Button, Icon, Input, List, Segment } from "semantic-ui-react";
+import { Button, Divider, Icon, Input, List, Segment } from "semantic-ui-react";
 import nodes from "./treeData";
 import "react-checkbox-tree/lib/react-checkbox-tree.css";
 import "../App.css";
-
 export class Treeview extends Component {
   state = {
     checked: [], //for any node you wanted to check box tick before hand then provide its value to checked array
@@ -54,13 +53,11 @@ export class Treeview extends Component {
     this.highLighter();
   }
 
-  // method to handle view more
-  handleViewMore() {
-    console.log("view more function");
-  }
+ 
   // method to update state of all the tree nodes(Checked or UnChecked)
   onCheck(checked: any) {
     this.setState({ checked });
+    console.log(this.state.checked);
   }
   // method to update state of only parent nodes(Expanded or not Expanded)
   onExpand(expanded: any) {
@@ -113,24 +110,9 @@ export class Treeview extends Component {
 
     return (
       <>
-        <Segment
-          style={{ float: "right", marginRight: "600px", width: "270px" }}
-        >
-          <List bulleted>
-            <List.Item>
-              <List.Header> Selected Node:</List.Header>
-
-              <List.List>
-                {checked.map((item) => (
-                  <List.Item>{item}</List.Item>
-                ))}
-              </List.List>
-            </List.Item>
-          </List>
-        </Segment>
-
         <div className="controller">
           <Segment className="view-segement">
+              
             <Input
               icon={<Icon name="search" />}
               placeholder="Search..."
@@ -138,6 +120,7 @@ export class Treeview extends Component {
               type="text"
               value={filterText}
               onChange={this.onFilterChange}
+              id="search-input"
             />
             <div id="check-box-tree">
               <CheckboxTree
@@ -149,6 +132,12 @@ export class Treeview extends Component {
                 onExpand={this.onExpand}
                 showExpandAll
                 onClick={this.onClick}
+                expandOnClick
+                onlyLeafCheckboxes={true}
+                icons={{
+                  expandAll: <span className="fa fa-plus-square" />,
+                  collapseAll: <span className="fa fa-minus-square" />,
+                }}
               />
             </div>
 
@@ -156,15 +145,12 @@ export class Treeview extends Component {
               <></>
             ) : (
               <span className="no-match">
-                <br />
+               <br/><br/>
                 <Icon name="x" />
                 no match found
               </span>
             )}
           </Segment>
-          <Button attached="bottom" primary onClick={this.handleViewMore}>
-            view more
-          </Button>
         </div>
       </>
     );
