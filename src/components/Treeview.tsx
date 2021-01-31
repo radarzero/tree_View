@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import CheckboxTree from "react-checkbox-tree";
-import { Button, Divider, Icon, Input, List, Segment } from "semantic-ui-react";
+import {
+  Button,
+  Divider,
+  Icon,
+  Input,
+  List,
+  Menu,
+  Segment,
+} from "semantic-ui-react";
 import nodes from "./treeData";
 import "react-checkbox-tree/lib/react-checkbox-tree.css";
 import "../App.css";
@@ -53,7 +61,6 @@ export class Treeview extends Component {
     this.highLighter();
   }
 
- 
   // method to update state of all the tree nodes(Checked or UnChecked)
   onCheck(checked: any) {
     this.setState({ checked });
@@ -109,50 +116,46 @@ export class Treeview extends Component {
     const { checked, expanded, filterText, nodesFiltered } = this.state;
 
     return (
-      <>
-        <div className="controller">
-          <Segment className="view-segement">
-              
-            <Input
-              icon={<Icon name="search" />}
-              placeholder="Search..."
-              className="filter-text"
-              type="text"
-              value={filterText}
-              onChange={this.onFilterChange}
-              id="search-input"
-            />
-            <div id="check-box-tree">
-              <CheckboxTree
-                checked={checked}
-                expanded={expanded}
-                iconsClass="fa5"
-                nodes={nodesFiltered}
-                onCheck={this.onCheck}
-                onExpand={this.onExpand}
-                showExpandAll
-                onClick={this.onClick}
-                expandOnClick
-                onlyLeafCheckboxes={true}
-                icons={{
-                  expandAll: <span className="fa fa-plus-square" />,
-                  collapseAll: <span className="fa fa-minus-square" />,
-                }}
-              />
-            </div>
-
-            {this.state.nodesFiltered.length ? (
-              <></>
-            ) : (
-              <span className="no-match">
-               <br/><br/>
-                <Icon name="x" />
-                no match found
-              </span>
-            )}
-          </Segment>
+      <div className="tree-control-view">
+        <div className="control-view">
+          <Input
+            icon={<Icon name="search" />}
+            placeholder="Search..."
+            className="filter-text"
+            type="text"
+            value={filterText}
+            onChange={this.onFilterChange}
+            id="search-input"
+          />
         </div>
-      </>
+        <div className="tree-view">
+          <CheckboxTree
+            checked={checked}
+            expanded={expanded}
+            iconsClass="fa5"
+            nodes={nodesFiltered}
+            onCheck={this.onCheck}
+            onExpand={this.onExpand}
+            showExpandAll
+            onClick={this.onClick}
+            expandOnClick
+            onlyLeafCheckboxes={true}
+            icons={{
+              expandAll: <span className="fa fa-expand" />,
+              collapseAll: <span className="fa fa-compress" />,
+            }}
+          />
+          {this.state.nodesFiltered.length ? (
+            <></>
+          ) : (
+            <span className="no-match">
+              <br/>
+              <Icon name="x" />
+              no match found
+            </span>
+          )}
+        </div>
+      </div>
     );
   }
 }

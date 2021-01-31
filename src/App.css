@@ -1,80 +1,83 @@
-body {
-  overflow: hidden;
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.controller {
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 290px;
+.high-light {
+  background: #ecea51;
 }
 
-.controller .no-match {
+.no-match {
   color: red;
   font-family: "Londrina Solid", Regular;
   font-size: 1.7rem;
 }
 
-.controller #check-box-tree {
-  position: absolute;
-  margin-top: 0.5rem;
-  margin-left: -0.6rem;
-  z-index: 0;
+.tree-control-view {
+  width: 270px;
+  border: 1.5px solid black;
+  margin: 0.5rem;
 }
 
-.controller .view-segement {
-  position: absolute;
+.tree-control-view .rct-options {
+  position: fixed;
+  top: 17px;
+  left: 210px;
+  height: 20px;
   z-index: 1;
-  height: 70vh;
+}
+
+.tree-control-view .rct-options .rct-icon-expand-all {
+  font-size: 1.2rem;
+}
+
+.tree-control-view .rct-options .rct-icon-collapse-all {
+  font-size: 1.2rem;
+}
+
+.tree-control-view .control-view {
+  border-bottom: 1px solid black;
+}
+
+.tree-control-view .control-view #search-input {
+  border: hidden;
+  border-radius: 0;
+  border-right: 1px solid black;
+}
+
+.tree-control-view .tree-view {
+  height: 50vh;
   overflow-y: auto;
   overflow-x: auto;
 }
 
-.controller #search-input {
-  border-top: hidden;
-  border-right: hidden;
-  border-left: hidden;
-}
-
-.controller .rct-node-icon {
+.tree-control-view .tree-view .rct-node-icon {
   font-size: 0.9rem;
   color: #2b2828;
 }
 
-.controller .rct-icon {
+.tree-control-view .tree-view .rct-icon {
   font-size: 0.9rem;
 }
 
-.controller .rct-icon-expand-all {
-  font-size: 1.2rem;
+.tree-control-view .tree-view .rct-icon-leaf {
+  font-size: 0.9rem;
 }
 
-.controller .rct-icon-collapse-all {
-  font-size: 1.2rem;
-}
-
-.controller .high-light {
-  background: #ecea51;
-}
-
-.controller .rct-options {
-  position: fixed;
-  top: 35px;
-  left: 230px;
-  height: 20px;
-  z-index: -1;
-}
-
-.controller .rct-text {
+.tree-control-view .tree-view .rct-text {
   margin-right: 20px;
-}
-
-.controller .rct-title {
   font-size: 0.9rem;
 }
 
-.controller .rct-collapse *,
-.controller .rct-checkbox *,
-.controller .rct-node-icon * {
+.tree-control-view .tree-view .rct-title {
+  font-size: 0.9rem;
+}
+
+.tree-control-view .tree-view .rct-collapse *,
+.tree-control-view .tree-view .rct-checkbox *,
+.tree-control-view .tree-view .rct-node-icon * {
   width: 5px;
 }
 /*# sourceMappingURL=App.css.map */

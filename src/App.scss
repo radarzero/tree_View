@@ -1,69 +1,71 @@
-body {
-  overflow: hidden;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.controller {
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 290px;
-  // styling for no match found text
-  .no-match {
-    color: red;
-    font-family: "Londrina Solid", Regular;
-    font-size: 1.7rem;
-  }
-  #check-box-tree {
-    position: absolute;
-    margin-top: 0.5rem;
-    margin-left: -0.6rem;
-    z-index: 0;
-  }
-  .view-segement {
-    position: absolute;
-    z-index: 1;
-    height: 70vh;
-    overflow-y: auto;
-    overflow-x: auto;
-  }
-  #search-input {
-    border-top: hidden;
-    border-right: hidden;
-    border-left: hidden;
-  }
-  // for node icon
-  .rct-node-icon {
-    font-size: 0.9rem;
-    color: rgb(43, 40, 40);
-  }
-  .rct-icon {
-    font-size: 0.9rem;
-  }
-  .rct-icon-expand-all {
-    font-size: 1.2rem;
-  }
-  .rct-icon-collapse-all {
-    font-size: 1.2rem;
-  }
-  .high-light {
-    background: rgb(236, 234, 81);
-  }
-  // for expand and collapsed button
+// for high-lighting filter text
+.high-light {
+  background: rgb(236, 234, 81);
+}
+// styling for no match found text
+.no-match {
+  color: red;
+  font-family: "Londrina Solid", Regular;
+  font-size: 1.7rem;
+}
+.tree-control-view {
+  width: 270px;
+  border: 1.5px solid black;
+  margin: 0.5rem;
   .rct-options {
     position: fixed;
-
-    top: 35px;
-    left: 230px;
+    top: 17px;
+    left: 210px;
     height: 20px;
-    z-index: -1;
+    z-index: 1;
+    .rct-icon-expand-all {
+      font-size: 1.2rem;
+    }
+    .rct-icon-collapse-all {
+      font-size: 1.2rem;
+    }
   }
-  .rct-text {
-    margin-right: 20px;
+  // controllers
+  .control-view {
+    border-bottom: 1px solid black;
+    #search-input {
+      border: hidden;
+      border-radius: 0;
+      border-right: 1px solid black;
+    }
   }
-  .rct-title {
-    font-size: 0.9rem;
-  }
-  .rct-collapse *,
-  .rct-checkbox *,
-  .rct-node-icon * {
-    width: 5px;
+  // tree view
+  .tree-view {
+    height: 50vh;
+    overflow-y: auto;
+    overflow-x: auto;
+    // for node icon
+    .rct-node-icon {
+      font-size: 0.9rem;
+      color: rgb(43, 40, 40);
+    }
+    .rct-icon {
+      font-size: 0.9rem;
+    }
+    .rct-icon-leaf {
+      font-size: 0.9rem;
+    }
+    .rct-text {
+      margin-right: 20px;
+      font-size: 0.9rem;
+    }
+    .rct-title {
+      font-size: 0.9rem;
+    }
+    .rct-collapse *,
+    .rct-checkbox *,
+    .rct-node-icon * {
+      width: 5px;
+    }
   }
 }
