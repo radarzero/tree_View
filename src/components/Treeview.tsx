@@ -127,6 +127,7 @@ export class Treeview extends Component {
             onChange={this.onFilterChange}
             id="search-input"
           />
+          <div className="vertical-rule"></div>
         </div>
         <div className="tree-view">
           <CheckboxTree
@@ -141,17 +142,17 @@ export class Treeview extends Component {
             expandOnClick
             onlyLeafCheckboxes={true}
             icons={{
-              expandAll: <span className="fa fa-expand" />,
-              collapseAll: <span className="fa fa-compress" />,
+              expandAll: <span className="fas fa-caret-square-down" />,
+              collapseAll: <span className="fas fa-caret-square-up" />,
             }}
           />
           {this.state.nodesFiltered.length ? (
             <></>
           ) : (
             <span className="no-match">
-              <br/>
-              <Icon name="x" />
-              no match found
+              <br />
+              No Match Found
+              <Icon name="exclamation" />
             </span>
           )}
         </div>

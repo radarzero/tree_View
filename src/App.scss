@@ -3,15 +3,20 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  overflow: hidden;
+}
+
 // for high-lighting filter text
 .high-light {
-  background: rgb(236, 234, 81);
+  background: #ffff00;
 }
 // styling for no match found text
 .no-match {
-  color: red;
-  font-family: "Londrina Solid", Regular;
-  font-size: 1.7rem;
+  color: grey;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5rem;
+  margin-left: 1rem;
 }
 .tree-control-view {
   width: 270px;
@@ -19,10 +24,15 @@
   margin: 0.5rem;
   .rct-options {
     position: fixed;
-    top: 17px;
-    left: 210px;
+    top: 18px;
+    left: 208.5px;
     height: 20px;
     z-index: 1;
+    color: #909090;
+    .rct-option-collapse-all {
+      margin-left: 9px;
+    }
+
     .rct-icon-expand-all {
       font-size: 1.2rem;
     }
@@ -32,18 +42,28 @@
   }
   // controllers
   .control-view {
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #acacac;
     #search-input {
       border: hidden;
       border-radius: 0;
+      margin-top: 0;
       border-right: 1px solid black;
+    }
+    .vertical-rule {
+      position: absolute;
+      border-left: 1px solid black;
+      height: 2.6rem;
+      top: 9px;
+      left: 243px;
     }
   }
   // tree view
   .tree-view {
     height: 50vh;
-    overflow-y: auto;
+    display: flex;
     overflow-x: auto;
+    // ....custom srcoll bar
+
     // for node icon
     .rct-node-icon {
       font-size: 0.9rem;
@@ -56,13 +76,16 @@
       font-size: 0.9rem;
     }
     .rct-text {
-      margin-right: 20px;
       font-size: 0.9rem;
     }
     .rct-title {
       font-size: 0.9rem;
+      margin-left: 3px;
     }
-    .rct-collapse *,
+    .rct-collapse-btn {
+      padding-right: 0;
+      margin-right: -3px;
+    }
     .rct-checkbox *,
     .rct-node-icon * {
       width: 5px;
