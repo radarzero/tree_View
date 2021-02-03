@@ -3,6 +3,8 @@
 // is  also used for performance optimizations.
 // other than value it have label and children.
 
+import { Label } from "semantic-ui-react";
+
 const nodes = [
   {
     value: "app",
@@ -37,6 +39,25 @@ const nodes = [
           {
             value: "EventServiceProvider.js",
             label: "EventServiceProvider.js",
+          },
+          {
+            value: "mobile",
+            label: "mobile",
+          },
+          {
+            value: "bottle",
+            label: "bottle",
+            children: [
+              {
+                value: "milton",
+                label: "milton",
+              },
+              { value: "cello", label: "cello" },
+              {
+                value: "sharp1",
+                label: "sharp",
+              },
+            ],
           },
         ],
       },
@@ -79,6 +100,40 @@ const nodes = [
       {
         value: "index.html",
         label: "index.html",
+      },
+      {
+        value: "mouse",
+        label: "mouse",
+      },
+      {
+        value: "monitor",
+        label: "monitor",
+        children: [
+          {
+            value: "compony",
+            label: "compony",
+            children: [
+              {
+                value: "hp",
+                label: "hp",
+              },
+              {
+                value: "dell",
+                label: "dell",
+                children: [
+                  {
+                    value: "optimal",
+                    label: "optimal",
+                  },
+                  {
+                    value: "sharp2",
+                    label: "sharp",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
     ],
   },

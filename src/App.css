@@ -14,8 +14,13 @@ body {
 }
 
 .no-match {
-  color: grey;
-  font-size: 0.9rem;
+  color: #807c7c;
+  margin-left: 3px;
+  font-size: 0.85rem;
+}
+
+.no-match ul {
+  margin-left: 4px;
 }
 
 .tree-control-view {
@@ -85,7 +90,7 @@ body {
 
 .tree-control-view .tree-view .rct-node-clickable:focus {
   padding: 0;
-  margin: 0 2px;
+  margin: 0 1px;
   background: #e2dfdf;
 }
 
@@ -110,6 +115,7 @@ body {
   font-size: 0.9rem;
   padding: 0;
   margin: 0 5px;
+  margin-top: 0.08em;
 }
 
 .tree-control-view .tree-view .rct-collapse-btn {

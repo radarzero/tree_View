@@ -13,8 +13,12 @@ body {
 }
 // styling for no match found text
 .no-match {
-  color: grey;
-  font-size: 0.9rem;
+  color: rgb(128, 124, 124);
+  margin-left: 3px;
+  font-size: 0.85rem;
+  ul {
+    margin-left: 4px;
+  }
 }
 .tree-control-view {
   width: 270px;
@@ -72,7 +76,7 @@ body {
     }
     .rct-node-clickable:focus {
       padding: 0;
-      margin: 0 2px;
+      margin: 0 1px;
       background: rgb(226, 223, 223);
     }
     .rct-node-icon {
@@ -92,6 +96,7 @@ body {
       font-size: 0.9rem;
       padding: 0;
       margin: 0 5px;
+      margin-top: 0.08em;
     }
     .rct-collapse-btn {
       padding-right: 0;

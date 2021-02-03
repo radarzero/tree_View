@@ -13,6 +13,7 @@ export class Treeview extends Component {
     nodesFiltered: nodes,
     nodes,
     clicked: {},
+    loading:false,
   };
 
   constructor(props: any) {
@@ -127,7 +128,7 @@ export class Treeview extends Component {
     });
   }
   render() {
-    const { checked, expanded, filterText, nodesFiltered } = this.state;
+    const { checked, expanded, filterText, nodesFiltered ,loading} = this.state;
     checked.length > 0 && console.log(checked);
 
     return (
@@ -140,11 +141,11 @@ export class Treeview extends Component {
               link: filterText ? true : false,
               onClick: this.resetFilterText,
             }}
-            loading={false}
+            loading={loading}
             placeholder="Search..."
             className="filter-text"
             type="search"
-            // value={filterText}
+            // value={filterText} remove due to adding debounce
             onChange={(e) => this.onFilterChange(e.target.value)}
             id="search-input"
           />
@@ -161,10 +162,10 @@ export class Treeview extends Component {
             showExpandAll
             onClick={this.onClick}
             expandOnClick
-            onlyLeafCheckboxes={true}
+            onlyLeafCheckboxes={false}
             icons={{
-              expandAll: <span className="fas fa-angle-double-down" />,
-              collapseAll: <span className="fas fa-angle-double-up" />,
+              expandAll: <span className="fas fa-level-down-alt" />,
+              collapseAll: <span className="fas fa-level-up-alt" />,
             }}
           />
           {this.state.nodesFiltered.length ? (
@@ -175,7 +176,7 @@ export class Treeview extends Component {
               Suggestions:
               <ul>
                 <li>-Make sure that all words are spelled correctly.</li>
-                <li>-Try different keywords.</li>
+                <li>-Try different keyword.</li>
               </ul>
             </span>
           )}
