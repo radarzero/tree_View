@@ -24,6 +24,10 @@ const nodes = [
               },
             ],
           },
+          {
+            value: "routes.js",
+            label: "routes.js",
+          },
         ],
       },
       {

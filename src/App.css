@@ -15,9 +15,7 @@ body {
 
 .no-match {
   color: grey;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.5rem;
-  margin-left: 1rem;
+  font-size: 0.9rem;
 }
 
 .tree-control-view {
@@ -28,15 +26,15 @@ body {
 
 .tree-control-view .rct-options {
   position: fixed;
-  top: 18px;
-  left: 208.5px;
+  top: 17px;
+  left: 212px;
   height: 20px;
   z-index: 1;
-  color: #909090;
+  color: #a0a0a0;
 }
 
 .tree-control-view .rct-options .rct-option-collapse-all {
-  margin-left: 9px;
+  margin-left: 12px;
 }
 
 .tree-control-view .rct-options .rct-icon-expand-all {
@@ -58,12 +56,17 @@ body {
   border-right: 1px solid black;
 }
 
+.tree-control-view .control-view .search {
+  font-size: 1.2rem;
+  color: #424141;
+}
+
 .tree-control-view .control-view .vertical-rule {
   position: absolute;
   border-left: 1px solid black;
   height: 2.6rem;
   top: 9px;
-  left: 243px;
+  left: 244px;
 }
 
 .tree-control-view .tree-view {
@@ -72,6 +75,18 @@ body {
   display: -ms-flexbox;
   display: flex;
   overflow-x: auto;
+}
+
+.tree-control-view .tree-view .rct-node-clickable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.tree-control-view .tree-view .rct-node-clickable:focus {
+  padding: 0;
+  margin: 0 2px;
+  background: #e2dfdf;
 }
 
 .tree-control-view .tree-view .rct-node-icon {
@@ -93,7 +108,8 @@ body {
 
 .tree-control-view .tree-view .rct-title {
   font-size: 0.9rem;
-  margin-left: 3px;
+  padding: 0;
+  margin: 0 5px;
 }
 
 .tree-control-view .tree-view .rct-collapse-btn {

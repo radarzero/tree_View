@@ -14,9 +14,7 @@ body {
 // styling for no match found text
 .no-match {
   color: grey;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.5rem;
-  margin-left: 1rem;
+  font-size: 0.9rem;
 }
 .tree-control-view {
   width: 270px;
@@ -24,13 +22,13 @@ body {
   margin: 0.5rem;
   .rct-options {
     position: fixed;
-    top: 18px;
-    left: 208.5px;
+    top: 17px;
+    left: 212px;
     height: 20px;
     z-index: 1;
-    color: #909090;
+    color: rgb(160, 160, 160);
     .rct-option-collapse-all {
-      margin-left: 9px;
+      margin-left: 12px;
     }
 
     .rct-icon-expand-all {
@@ -49,12 +47,16 @@ body {
       margin-top: 0;
       border-right: 1px solid black;
     }
+    .search {
+      font-size: 1.2rem;
+      color: rgb(66, 65, 65);
+    }
     .vertical-rule {
       position: absolute;
       border-left: 1px solid black;
       height: 2.6rem;
       top: 9px;
-      left: 243px;
+      left: 244px;
     }
   }
   // tree view
@@ -65,6 +67,14 @@ body {
     // ....custom srcoll bar
 
     // for node icon
+    .rct-node-clickable {
+      display: flex;
+    }
+    .rct-node-clickable:focus {
+      padding: 0;
+      margin: 0 2px;
+      background: rgb(226, 223, 223);
+    }
     .rct-node-icon {
       font-size: 0.9rem;
       color: rgb(43, 40, 40);
@@ -80,7 +90,8 @@ body {
     }
     .rct-title {
       font-size: 0.9rem;
-      margin-left: 3px;
+      padding: 0;
+      margin: 0 5px;
     }
     .rct-collapse-btn {
       padding-right: 0;

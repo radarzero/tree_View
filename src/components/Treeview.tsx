@@ -1,16 +1,9 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import CheckboxTree from "react-checkbox-tree";
-import {
-  Button,
-  Divider,
-  Icon,
-  Input,
-  List,
-  Menu,
-  Segment,
-} from "semantic-ui-react";
+import { Input } from "semantic-ui-react";
 import nodes from "./treeData";
 import "react-checkbox-tree/lib/react-checkbox-tree.css";
+import { debounce } from "lodash";
 import "../App.css";
 export class Treeview extends Component {
   state = {
@@ -31,6 +24,7 @@ export class Treeview extends Component {
     this.filterTree = this.filterTree.bind(this);
     this.filterNodes = this.filterNodes.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.resetFilterText = this.resetFilterText.bind(this);
   }
   // method to update the state of  the tree node(selected or not selected)
   //   it contain single value in Object(it is diffrent from check box selection)
@@ -64,19 +58,31 @@ export class Treeview extends Component {
   // method to update state of all the tree nodes(Checked or UnChecked)
   onCheck(checked: any) {
     this.setState({ checked });
-    console.log(this.state.checked);
   }
   // method to update state of only parent nodes(Expanded or not Expanded)
   onExpand(expanded: any) {
     this.setState({ expanded });
   }
+
   // Filtering Methods these three method combine gives filtering functionality
-  onFilterChange(e: any) {
+
+  onFilterChange = debounce((searchText: string) => {
+    // for expanding all nodes that satify filter text
+    let resArr: any[] = [];
+    function expander(item: any) {
+      resArr.push(item.value);
+      item.children && item.children.forEach(expander);
+    }
+    this.state.nodesFiltered.forEach(expander);
+    // updating state
     this.setState(
-      { filterText: e.target.value.trimStart().trimEnd() },
+      {
+        filterText: searchText.trimStart().trimEnd(),
+        expanded: resArr,
+      },
       this.filterTree
     );
-  }
+  }, 500);
 
   filterTree() {
     // Reset nodes back to unfiltered state
@@ -112,19 +118,34 @@ export class Treeview extends Component {
     return filtered;
   }
   // ..........................
+  resetFilterText(this: any) {
+    let search = document.getElementById("search-input") as HTMLInputElement;
+    search.value = "";
+    this.setState({
+      filterText: "",
+      nodesFiltered: nodes,
+    });
+  }
   render() {
     const { checked, expanded, filterText, nodesFiltered } = this.state;
+    checked.length > 0 && console.log(checked);
 
     return (
       <div className="tree-control-view">
         <div className="control-view">
           <Input
-            icon={<Icon name="search" />}
+            icon={{
+              name: filterText ? "close" : "search",
+              circular: false,
+              link: filterText ? true : false,
+              onClick: this.resetFilterText,
+            }}
+            loading={false}
             placeholder="Search..."
             className="filter-text"
-            type="text"
-            value={filterText}
-            onChange={this.onFilterChange}
+            type="search"
+            // value={filterText}
+            onChange={(e) => this.onFilterChange(e.target.value)}
             id="search-input"
           />
           <div className="vertical-rule"></div>
@@ -142,17 +163,20 @@ export class Treeview extends Component {
             expandOnClick
             onlyLeafCheckboxes={true}
             icons={{
-              expandAll: <span className="fas fa-caret-square-down" />,
-              collapseAll: <span className="fas fa-caret-square-up" />,
+              expandAll: <span className="fas fa-angle-double-down" />,
+              collapseAll: <span className="fas fa-angle-double-up" />,
             }}
           />
           {this.state.nodesFiltered.length ? (
             <></>
           ) : (
             <span className="no-match">
-              <br />
-              No Match Found
-              <Icon name="exclamation" />
+              No Results for "{filterText}"<br />
+              Suggestions:
+              <ul>
+                <li>-Make sure that all words are spelled correctly.</li>
+                <li>-Try different keywords.</li>
+              </ul>
             </span>
           )}
         </div>
