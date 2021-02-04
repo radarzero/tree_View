@@ -38,6 +38,7 @@ body {
   border-radius: 0;
   margin-top: 0;
   border-right: 1px solid black;
+  height: 1.8rem;
 }
 
 .tree-control-view .control-view .search {
@@ -47,17 +48,17 @@ body {
 
 .tree-control-view .control-view .vertical-rule {
   border-left: 1px solid black;
-  height: 2.6rem;
+  height: 1.8rem;
   float: right;
-  margin-right: 4px;
+  margin-right: 6px;
 }
 
 .tree-control-view .control-view .controller-btn {
   float: right;
-  font-size: 1.3rem;
+  font-size: 0.97rem;
   border: hidden;
-  margin-right: 3px;
-  margin-top: 7px;
+  margin-right: 5px;
+  margin-top: 6px;
   background: transparent;
   color: #a0a0a0;
   padding: 0;

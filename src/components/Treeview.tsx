@@ -77,6 +77,7 @@ export class Treeview extends Component {
       item.children && item.children.forEach(expander);
     }
     this.state.nodesFiltered.forEach(expander);
+
     // ...................................
     // updating state
     this.setState(

@@ -33,30 +33,33 @@ body {
       border-radius: 0;
       margin-top: 0;
       border-right: 1px solid black;
+      height: 1.8rem;
     }
+
     .search {
       font-size: 1.2rem;
       color: rgb(66, 65, 65);
     }
     .vertical-rule {
       border-left: 1px solid black;
-      height: 2.6rem;
+      height: 1.8rem;
       float: right;
-      margin-right: 4px;
+      margin-right: 6px;
     }
     .controller-btn {
       float: right;
-      font-size: 1.3rem;
+      font-size: 0.97rem;
       border: hidden;
-      margin-right: 3px;
-      margin-top: 7px;
+      margin-right: 5px;
+      margin-top: 6px;
       background: transparent;
       color: rgb(160, 160, 160);
       padding: 0;
-      &:active, &:focus{
-       outline: none;
-       border: hidden;
-      } 
+      &:active,
+      &:focus {
+        outline: none;
+        border: hidden;
+      }
     }
   }
   // tree view
