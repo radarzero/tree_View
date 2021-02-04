@@ -29,27 +29,6 @@ body {
   margin: 0.5rem;
 }
 
-.tree-control-view .rct-options {
-  position: fixed;
-  top: 17px;
-  left: 212px;
-  height: 20px;
-  z-index: 1;
-  color: #a0a0a0;
-}
-
-.tree-control-view .rct-options .rct-option-collapse-all {
-  margin-left: 12px;
-}
-
-.tree-control-view .rct-options .rct-icon-expand-all {
-  font-size: 1.2rem;
-}
-
-.tree-control-view .rct-options .rct-icon-collapse-all {
-  font-size: 1.2rem;
-}
-
 .tree-control-view .control-view {
   border-bottom: 2px solid #acacac;
 }
@@ -67,11 +46,26 @@ body {
 }
 
 .tree-control-view .control-view .vertical-rule {
-  position: absolute;
   border-left: 1px solid black;
   height: 2.6rem;
-  top: 9px;
-  left: 244px;
+  float: right;
+  margin-right: 4px;
+}
+
+.tree-control-view .control-view .controller-btn {
+  float: right;
+  font-size: 1.3rem;
+  border: hidden;
+  margin-right: 3px;
+  margin-top: 7px;
+  background: transparent;
+  color: #a0a0a0;
+  padding: 0;
+}
+
+.tree-control-view .control-view .controller-btn:active, .tree-control-view .control-view .controller-btn:focus {
+  outline: none;
+  border: hidden;
 }
 
 .tree-control-view .tree-view {

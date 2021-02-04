@@ -24,7 +24,24 @@ body {
   width: 270px;
   border: 1.5px solid black;
   margin: 0.5rem;
+  .rct-options {
+    position: fixed;
+    top: 17px;
+    left: 212px;
+    height: 20px;
+    z-index: 1;
+    color: rgb(160, 160, 160);
+    .rct-option-collapse-all {
+      margin-left: 12px;
+    }
 
+    .rct-icon-expand-all {
+      font-size: 1.2rem;
+    }
+    .rct-icon-collapse-all {
+      font-size: 1.2rem;
+    }
+  }
   // controllers
   .control-view {
     border-bottom: 2px solid #acacac;
@@ -39,24 +56,11 @@ body {
       color: rgb(66, 65, 65);
     }
     .vertical-rule {
+      position: absolute;
       border-left: 1px solid black;
       height: 2.6rem;
-      float: right;
-      margin-right: 4px;
-    }
-    .controller-btn {
-      float: right;
-      font-size: 1.3rem;
-      border: hidden;
-      margin-right: 3px;
-      margin-top: 7px;
-      background: transparent;
-      color: rgb(160, 160, 160);
-      padding: 0;
-      &:active, &:focus{
-       outline: none;
-       border: hidden;
-      } 
+      top: 9px;
+      left: 244px;
     }
   }
   // tree view

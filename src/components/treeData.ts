@@ -3,8 +3,6 @@
 // is  also used for performance optimizations.
 // other than value it have label and children.
 
-import { Label } from "semantic-ui-react";
-
 const nodes = [
   {
     value: "app",

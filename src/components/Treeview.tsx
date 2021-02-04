@@ -1,6 +1,6 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import CheckboxTree from "react-checkbox-tree";
-import { Input } from "semantic-ui-react";
+import { Icon, Input } from "semantic-ui-react";
 import nodes from "./treeData";
 import "react-checkbox-tree/lib/react-checkbox-tree.css";
 import { debounce } from "lodash";
@@ -13,7 +13,7 @@ export class Treeview extends Component {
     nodesFiltered: nodes,
     nodes,
     clicked: {},
-    loading:false,
+    loading: false,
   };
 
   constructor(props: any) {
@@ -26,6 +26,8 @@ export class Treeview extends Component {
     this.filterNodes = this.filterNodes.bind(this);
     this.onClick = this.onClick.bind(this);
     this.resetFilterText = this.resetFilterText.bind(this);
+    this.collapesedAllHandler = this.collapesedAllHandler.bind(this);
+    this.expandAllHandler = this.expandAllHandler.bind(this);
   }
   // method to update the state of  the tree node(selected or not selected)
   //   it contain single value in Object(it is diffrent from check box selection)
@@ -118,7 +120,7 @@ export class Treeview extends Component {
 
     return filtered;
   }
-  // ..........................
+  // method to reset filter text
   resetFilterText(this: any) {
     let search = document.getElementById("search-input") as HTMLInputElement;
     search.value = "";
@@ -127,8 +129,33 @@ export class Treeview extends Component {
       nodesFiltered: nodes,
     });
   }
+  // method to handle collapsed all
+  collapesedAllHandler(this: any) {
+    this.setState({
+      expanded: [],
+    });
+  }
+  // method to handle expand all
+  expandAllHandler(this: any) {
+    let resExpandedArr: any[] = [];
+    function expander(item: any) {
+      resExpandedArr.push(item.value);
+      item.children && item.children.forEach(expander);
+    }
+    nodes.forEach(expander);
+    this.setState({
+      expanded: resExpandedArr,
+    });
+  }
+  // .........................
   render() {
-    const { checked, expanded, filterText, nodesFiltered ,loading} = this.state;
+    const {
+      checked,
+      expanded,
+      filterText,
+      nodesFiltered,
+      loading,
+    } = this.state;
     checked.length > 0 && console.log(checked);
 
     return (
@@ -149,7 +176,23 @@ export class Treeview extends Component {
             onChange={(e) => this.onFilterChange(e.target.value)}
             id="search-input"
           />
+          <button
+            className="controller-btn"
+            aria-label="CollapseAll"
+            title="CollapseAll"
+            onClick={this.collapesedAllHandler}
+          >
+            <Icon name="level up alternate" />
+          </button>
           <div className="vertical-rule"></div>
+          <button
+            className="controller-btn"
+            aria-label="ExpandAll"
+            title="ExpandAll"
+            onClick={this.expandAllHandler}
+          >
+            <Icon name="level down alternate" />
+          </button>
         </div>
         <div className="tree-view">
           <CheckboxTree
@@ -159,10 +202,9 @@ export class Treeview extends Component {
             nodes={nodesFiltered}
             onCheck={this.onCheck}
             onExpand={this.onExpand}
-            showExpandAll
             onClick={this.onClick}
             expandOnClick
-            onlyLeafCheckboxes={false}
+            onlyLeafCheckboxes={true}
             icons={{
               expandAll: <span className="fas fa-level-down-alt" />,
               collapseAll: <span className="fas fa-level-up-alt" />,
