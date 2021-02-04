@@ -77,6 +77,7 @@ export class Treeview extends Component {
       item.children && item.children.forEach(expander);
     }
     this.state.nodesFiltered.forEach(expander);
+    // ...................................
     // updating state
     this.setState(
       {
@@ -115,7 +116,7 @@ export class Treeview extends Component {
       // Or a children has a matching node
       children.length
     ) {
-      filtered.push({ ...node, children });
+      filtered.push({ ...node, ...(children.length && { children }) });
     }
 
     return filtered;
@@ -127,6 +128,7 @@ export class Treeview extends Component {
     this.setState({
       filterText: "",
       nodesFiltered: nodes,
+      expanded: ["app"],
     });
   }
   // method to handle collapsed all
