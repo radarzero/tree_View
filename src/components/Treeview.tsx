@@ -13,8 +13,9 @@ export class Treeview extends Component {
     nodesFiltered: nodes,
     nodes,
     clicked: { value: "" },
-    checkboxDisplayNone: true, //update css property .rct-checkbox{display:none} for 'true'
+    checkboxDisplayNone: false, //update css property .rct-checkbox{display:none} for 'true'
     loading: false,
+    outputCheckedArr: [] as any,
   };
 
   constructor(props: any) {
@@ -77,6 +78,20 @@ export class Treeview extends Component {
   // method to update state of all the tree nodes(Checked or UnChecked)
   onCheck(checked: any) {
     this.setState({ checked });
+    let diff = checked.filter(
+      (x: any) => !this.state.outputCheckedArr.includes(x)
+    );
+    this.setState({
+      outputCheckedArr: this.state.outputCheckedArr.concat(diff),
+    });
+    let newDiff=this.state.outputCheckedArr.filter((x:any)=>!checked.includes(x));
+   if(newDiff.length){
+    let tempArr=this.state.outputCheckedArr;
+    for(let i=0;i<newDiff.length;i++){
+      tempArr=tempArr.filter((item:any)=>item!==newDiff[i]);
+    }
+    this.setState({outputCheckedArr:tempArr})
+   }
   }
   // method to update state of only parent nodes(Expanded or not Expanded)
   onExpand(expanded: any) {
@@ -174,10 +189,11 @@ export class Treeview extends Component {
       loading,
       clicked,
       checkboxDisplayNone,
+      outputCheckedArr,
     } = this.state;
     checkboxDisplayNone
       ? clicked.value && console.log(clicked.value)
-      : checked.length > 0 && console.log(checked);
+      : checked.length > 0 && console.log(outputCheckedArr);
 
     return (
       <div className="tree-control-view">
