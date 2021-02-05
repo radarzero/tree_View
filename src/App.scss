@@ -6,7 +6,9 @@
 body {
   overflow: hidden;
 }
-
+// .hide-it {
+//   display: none;
+// }
 // for high-lighting filter text
 .high-light {
   background: #ffff00;
@@ -56,7 +58,8 @@ body {
       color: rgb(160, 160, 160);
       padding: 0;
       &:active,
-      &:focus {
+      &:focus,
+      &:hover {
         outline: none;
         border: hidden;
       }
@@ -72,10 +75,10 @@ body {
     // for node icon
     .rct-node-clickable {
       display: flex;
+      margin-right: 3px;
     }
     .rct-node-clickable:focus {
       padding: 0;
-      margin: 0 1px;
       background: rgb(226, 223, 223);
     }
     .rct-node-icon {
@@ -101,9 +104,19 @@ body {
       padding-right: 0;
       margin-right: -3px;
     }
-    .rct-checkbox *,
+    .rct-checkbox {
+      // to remove checkbox......
+      display: none;
+      padding: 0;
+    }
     .rct-node-icon * {
       width: 5px;
+    }
+    .rct-icon-expand-open {
+      margin-right: 3px;
+    }
+    .rct-icon-expand-close {
+      margin-right: 3px;
     }
   }
 }

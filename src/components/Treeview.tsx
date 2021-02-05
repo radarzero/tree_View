@@ -8,11 +8,12 @@ import "../App.css";
 export class Treeview extends Component {
   state = {
     checked: [], //for any node you wanted to check box tick before hand then provide its value to checked array
-    expanded: ["app"], //for any node you wanted to expanded before hand then provide its value to expanded array
+    expanded: nodes.map((item) => item.value), //for any node you wanted to expanded before hand then provide its value to expanded array
     filterText: "",
     nodesFiltered: nodes,
     nodes,
-    clicked: {},
+    clicked: { value: "" },
+    checkboxDisplayNone: true, //update css property .rct-checkbox{display:none} for 'true'
     loading: false,
   };
 
@@ -28,6 +29,20 @@ export class Treeview extends Component {
     this.resetFilterText = this.resetFilterText.bind(this);
     this.collapesedAllHandler = this.collapesedAllHandler.bind(this);
     this.expandAllHandler = this.expandAllHandler.bind(this);
+    this.expandOnFilter = this.expandOnFilter.bind(this);
+  }
+  // method to expand tree node on filter
+  expandOnFilter(this: any) {
+    // for expanding all nodes that satify filter text
+    let resArr: any[] = [];
+    function expander(item: any) {
+      resArr.push(item.value);
+      item.children && item.children.forEach(expander);
+    }
+    this.state.nodesFiltered.forEach(expander);
+    this.setState({
+      expanded: resArr,
+    });
   }
   // method to update the state of  the tree node(selected or not selected)
   //   it contain single value in Object(it is diffrent from check box selection)
@@ -53,6 +68,7 @@ export class Treeview extends Component {
       }
     }
   }
+
   //   lifecycle method to trigger highLighting method on change of filter-text value
   componentDidUpdate() {
     this.highLighter();
@@ -70,23 +86,20 @@ export class Treeview extends Component {
   // Filtering Methods these three method combine gives filtering functionality
 
   onFilterChange = debounce((searchText: string) => {
-    // for expanding all nodes that satify filter text
-    let resArr: any[] = [];
-    function expander(item: any) {
-      resArr.push(item.value);
-      item.children && item.children.forEach(expander);
-    }
-    this.state.nodesFiltered.forEach(expander);
-
-    // ...................................
     // updating state
     this.setState(
       {
         filterText: searchText.trimStart().trimEnd(),
-        expanded: resArr,
       },
       this.filterTree
     );
+    if (searchText.length > 0) {
+      this.expandOnFilter();
+    } else {
+      this.setState({
+        expanded: nodes.map((item) => item.value),
+      });
+    }
   }, 500);
 
   filterTree() {
@@ -129,7 +142,7 @@ export class Treeview extends Component {
     this.setState({
       filterText: "",
       nodesFiltered: nodes,
-      expanded: ["app"],
+      expanded: nodes.map((item) => item.value),
     });
   }
   // method to handle collapsed all
@@ -150,6 +163,7 @@ export class Treeview extends Component {
       expanded: resExpandedArr,
     });
   }
+
   // .........................
   render() {
     const {
@@ -158,8 +172,12 @@ export class Treeview extends Component {
       filterText,
       nodesFiltered,
       loading,
+      clicked,
+      checkboxDisplayNone,
     } = this.state;
-    checked.length > 0 && console.log(checked);
+    checkboxDisplayNone
+      ? clicked.value && console.log(clicked.value)
+      : checked.length > 0 && console.log(checked);
 
     return (
       <div className="tree-control-view">
@@ -207,7 +225,6 @@ export class Treeview extends Component {
             onExpand={this.onExpand}
             onClick={this.onClick}
             expandOnClick
-            onlyLeafCheckboxes={true}
             icons={{
               expandAll: <span className="fas fa-level-down-alt" />,
               collapseAll: <span className="fas fa-level-up-alt" />,
@@ -221,7 +238,7 @@ export class Treeview extends Component {
               Suggestions:
               <ul>
                 <li>-Make sure that all words are spelled correctly.</li>
-                <li>-Try different keyword.</li>
+                <li>-Try different search text.</li>
               </ul>
             </span>
           )}

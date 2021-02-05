@@ -64,7 +64,7 @@ body {
   padding: 0;
 }
 
-.tree-control-view .control-view .controller-btn:active, .tree-control-view .control-view .controller-btn:focus {
+.tree-control-view .control-view .controller-btn:active, .tree-control-view .control-view .controller-btn:focus, .tree-control-view .control-view .controller-btn:hover {
   outline: none;
   border: hidden;
 }
@@ -81,11 +81,11 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-right: 3px;
 }
 
 .tree-control-view .tree-view .rct-node-clickable:focus {
   padding: 0;
-  margin: 0 1px;
   background: #e2dfdf;
 }
 
@@ -118,8 +118,20 @@ body {
   margin-right: -3px;
 }
 
-.tree-control-view .tree-view .rct-checkbox *,
+.tree-control-view .tree-view .rct-checkbox {
+  display: none;
+  padding: 0;
+}
+
 .tree-control-view .tree-view .rct-node-icon * {
   width: 5px;
+}
+
+.tree-control-view .tree-view .rct-icon-expand-open {
+  margin-right: 3px;
+}
+
+.tree-control-view .tree-view .rct-icon-expand-close {
+  margin-right: 3px;
 }
 /*# sourceMappingURL=App.css.map */
