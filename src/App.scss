@@ -1,3 +1,5 @@
+$base-color: #acacac;
+
 * {
   padding: 0;
   margin: 0;
@@ -15,7 +17,7 @@ body {
 }
 // styling for no match found text
 .no-match {
-  color: rgb(128, 124, 124);
+  color: $base-color;
   margin-left: 3px;
   font-size: 0.85rem;
   ul {
@@ -29,7 +31,9 @@ body {
 
   // controllers
   .control-view {
-    border-bottom: 2px solid #acacac;
+    color: base-color;
+    color: base-color;
+    border-bottom: 2px solid $base-color;
     #search-input {
       border: hidden;
       border-radius: 0;
@@ -40,7 +44,7 @@ body {
 
     .search {
       font-size: 1.2rem;
-      color: rgb(66, 65, 65);
+      color: $base-color;
     }
     .vertical-rule {
       border-left: 1px solid black;
@@ -55,7 +59,7 @@ body {
       margin-right: 5px;
       margin-top: 6px;
       background: transparent;
-      color: rgb(160, 160, 160);
+      color: $base-color;
       padding: 0;
       &:active,
       &:focus,
@@ -70,16 +74,15 @@ body {
     height: 50vh;
     display: flex;
     overflow-x: auto;
-    // ....custom srcoll bar
 
     // for node icon
     .rct-node-clickable {
       display: flex;
       margin-right: 3px;
     }
-    .rct-node-clickable:focus {
+    .rct-node-clickable {
       padding: 0;
-      background: rgb(226, 223, 223);
+      // background: $base-color;
     }
     .rct-node-icon {
       font-size: 0.9rem;
@@ -105,8 +108,8 @@ body {
       margin-right: -3px;
     }
     .rct-checkbox {
-      // to remove checkbox......
-      // display: none;
+      // to remove checkbox......................................
+      display: none;//comment this line to remove the checkbox
       padding: 0;
     }
     .rct-node-icon * {

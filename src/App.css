@@ -14,7 +14,7 @@ body {
 }
 
 .no-match {
-  color: #807c7c;
+  color: #acacac;
   margin-left: 3px;
   font-size: 0.85rem;
 }
@@ -30,6 +30,8 @@ body {
 }
 
 .tree-control-view .control-view {
+  color: base-color;
+  color: base-color;
   border-bottom: 2px solid #acacac;
 }
 
@@ -43,7 +45,7 @@ body {
 
 .tree-control-view .control-view .search {
   font-size: 1.2rem;
-  color: #424141;
+  color: #acacac;
 }
 
 .tree-control-view .control-view .vertical-rule {
@@ -60,7 +62,7 @@ body {
   margin-right: 5px;
   margin-top: 6px;
   background: transparent;
-  color: #a0a0a0;
+  color: #acacac;
   padding: 0;
 }
 
@@ -84,9 +86,8 @@ body {
   margin-right: 3px;
 }
 
-.tree-control-view .tree-view .rct-node-clickable:focus {
+.tree-control-view .tree-view .rct-node-clickable {
   padding: 0;
-  background: #e2dfdf;
 }
 
 .tree-control-view .tree-view .rct-node-icon {
@@ -119,6 +120,7 @@ body {
 }
 
 .tree-control-view .tree-view .rct-checkbox {
+  display: none;
   padding: 0;
 }
 

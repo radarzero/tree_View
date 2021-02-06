@@ -13,9 +13,10 @@ export class Treeview extends Component {
     nodesFiltered: nodes,
     nodes,
     clicked: { value: "" },
-    checkboxDisplayNone: false, //update css property .rct-checkbox{display:none} for 'true'
     loading: false,
     outputCheckedArr: [] as any,
+    // for removing check box=>make it true and follow the line below instruction
+    checkboxDisplayNone: true, //update css property .rct-checkbox{display:none} for 'true'
   };
 
   constructor(props: any) {
@@ -46,7 +47,6 @@ export class Treeview extends Component {
     });
   }
   // method to update the state of  the tree node(selected or not selected)
-  //   it contain single value in Object(it is diffrent from check box selection)
   onClick(clicked: any) {
     this.setState({ clicked });
   }
@@ -84,14 +84,16 @@ export class Treeview extends Component {
     this.setState({
       outputCheckedArr: this.state.outputCheckedArr.concat(diff),
     });
-    let newDiff=this.state.outputCheckedArr.filter((x:any)=>!checked.includes(x));
-   if(newDiff.length){
-    let tempArr=this.state.outputCheckedArr;
-    for(let i=0;i<newDiff.length;i++){
-      tempArr=tempArr.filter((item:any)=>item!==newDiff[i]);
+    let newDiff = this.state.outputCheckedArr.filter(
+      (x: any) => !checked.includes(x)
+    );
+    if (newDiff.length) {
+      let tempArr = this.state.outputCheckedArr;
+      for (let i = 0; i < newDiff.length; i++) {
+        tempArr = tempArr.filter((item: any) => item !== newDiff[i]);
+      }
+      this.setState({ outputCheckedArr: tempArr });
     }
-    this.setState({outputCheckedArr:tempArr})
-   }
   }
   // method to update state of only parent nodes(Expanded or not Expanded)
   onExpand(expanded: any) {
@@ -101,7 +103,6 @@ export class Treeview extends Component {
   // Filtering Methods these three method combine gives filtering functionality
 
   onFilterChange = debounce((searchText: string) => {
-    // updating state
     this.setState(
       {
         filterText: searchText.trimStart().trimEnd(),
