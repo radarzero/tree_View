@@ -100,7 +100,7 @@ export class Treeview extends Component {
     this.setState({ expanded });
   }
 
-  // Filtering Methods these three method combine gives filtering functionality
+  // Filtering Methods, these three method combine gives filtering functionality
 
   onFilterChange = debounce((searchText: string) => {
     this.setState(
