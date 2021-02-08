@@ -72,10 +72,10 @@ export class Treeview extends Component {
       }
     }
   }
-    //   lifecycle method to trigger highLighting method on change of filter-text value
-    componentDidUpdate() {
-      this.highLighter();
-    }
+  //   lifecycle method to trigger highLighting method on change of filter-text value
+  componentDidUpdate() {
+    this.highLighter();
+  }
 
   // method to update state of all the tree nodes(Checked or UnChecked)
   onCheck(checked: any) {
