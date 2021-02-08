@@ -33,6 +33,13 @@ body {
   color: base-color;
   color: base-color;
   border-bottom: 2px solid #acacac;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .tree-control-view .control-view #search-input {
@@ -51,15 +58,13 @@ body {
 .tree-control-view .control-view .vertical-rule {
   border-left: 1px solid black;
   height: 1.8rem;
-  float: right;
-  margin-right: 3px;
+  margin: 0 2px;
 }
 
 .tree-control-view .control-view .controller-btn {
-  float: right;
   border: hidden;
-  margin-right: 3px;
-  margin-top: 5px;
+  margin: 0px 3px;
+  margin-top: 4px;
   background: transparent;
   color: #acacac;
   cursor: pointer;
@@ -67,7 +72,7 @@ body {
 }
 
 .tree-control-view .control-view .controller-btn .icon-img {
-  width: 25px;
+  width: 24px;
 }
 
 .tree-control-view .control-view .controller-btn:active, .tree-control-view .control-view .controller-btn:focus, .tree-control-view .control-view .controller-btn:hover {

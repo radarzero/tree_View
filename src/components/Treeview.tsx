@@ -5,8 +5,8 @@ import nodes from "./treeData";
 import "react-checkbox-tree/lib/react-checkbox-tree.css";
 import { debounce } from "lodash";
 import "../App.css";
-import collapse from "./collapse.png";
-import expand from "./expand.png";
+import collapse from "./collapse.svg";
+import expand from "./expand.svg";
 
 export class Treeview extends Component {
   state = {

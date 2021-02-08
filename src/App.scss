@@ -32,6 +32,8 @@ body {
     color: base-color;
     color: base-color;
     border-bottom: 2px solid $base-color;
+    display: flex;
+    flex-direction: row;
     #search-input {
       border: hidden;
       border-radius: 0;
@@ -47,21 +49,19 @@ body {
     .vertical-rule {
       border-left: 1px solid black;
       height: 1.8rem;
-      float: right;
-      margin-right: 3px;
+      margin: 0 2px;
     }
 
     .controller-btn {
-      float: right;
       border: hidden;
-      margin-right: 3px;
-      margin-top: 5px;
+      margin: 0px 3px;
+      margin-top: 4px;
       background: transparent;
       color: $base-color;
       cursor: pointer;
       padding: 0;
       .icon-img {
-        width: 25px;
+        width: 24px;
       }
       &:active,
       &:focus,
