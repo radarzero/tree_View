@@ -52,18 +52,22 @@ body {
   border-left: 1px solid black;
   height: 1.8rem;
   float: right;
-  margin-right: 6px;
+  margin-right: 3px;
 }
 
 .tree-control-view .control-view .controller-btn {
   float: right;
-  font-size: 0.97rem;
   border: hidden;
-  margin-right: 5px;
-  margin-top: 6px;
+  margin-right: 1px;
+  margin-top: 4px;
   background: transparent;
   color: #acacac;
   padding: 0;
+}
+
+.tree-control-view .control-view .controller-btn .icon-img {
+  float: right;
+  width: 2em;
 }
 
 .tree-control-view .control-view .controller-btn:active, .tree-control-view .control-view .controller-btn:focus, .tree-control-view .control-view .controller-btn:hover {

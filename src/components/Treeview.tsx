@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import CheckboxTree from "react-checkbox-tree";
-import { Icon, Input } from "semantic-ui-react";
+import { Input } from "semantic-ui-react";
 import nodes from "./treeData";
 import "react-checkbox-tree/lib/react-checkbox-tree.css";
 import { debounce } from "lodash";
 import "../App.css";
+import collapse from "./collapse.png";
+import expand from "./expand.png";
+
 export class Treeview extends Component {
   state = {
     checked: [], //for any node you wanted to check box tick before hand then provide its value to checked array
@@ -69,8 +72,11 @@ export class Treeview extends Component {
       }
     }
   }
+    //   lifecycle method to trigger highLighting method on change of filter-text value
+    componentDidUpdate() {
+      this.highLighter();
+    }
 
-  
   // method to update state of all the tree nodes(Checked or UnChecked)
   onCheck(checked: any) {
     this.setState({ checked });
@@ -112,7 +118,6 @@ export class Treeview extends Component {
         expanded: nodes.map((item) => item.value),
       });
     }
-    this.highLighter();
   }, 500);
 
   filterTree() {
@@ -217,7 +222,7 @@ export class Treeview extends Component {
             title="CollapseAll"
             onClick={this.collapesedAllHandler}
           >
-            <Icon name="level up alternate" />
+            <img src={collapse} className="icon-img" alt="" />
           </button>
           <div className="vertical-rule"></div>
           <button
@@ -226,7 +231,7 @@ export class Treeview extends Component {
             title="ExpandAll"
             onClick={this.expandAllHandler}
           >
-            <Icon name="level down alternate" />
+            <img src={expand} className="icon-img" alt="" />
           </button>
         </div>
         <div className="tree-view">

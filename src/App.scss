@@ -48,17 +48,21 @@ body {
       border-left: 1px solid black;
       height: 1.8rem;
       float: right;
-      margin-right: 6px;
+      margin-right: 3px;
     }
+
     .controller-btn {
       float: right;
-      font-size: 0.97rem;
       border: hidden;
-      margin-right: 5px;
-      margin-top: 6px;
+      margin-right: 1px;
+      margin-top: 4px;
       background: transparent;
       color: $base-color;
       padding: 0;
+      .icon-img {
+        float: right;
+        width: 2em;
+      }
       &:active,
       &:focus,
       &:hover {
@@ -107,7 +111,7 @@ body {
     }
     .rct-checkbox {
       // to remove checkbox......................................
-      display: none;//comment this line to remove the checkbox
+      display: none; //comment this line to remove the checkbox
       padding: 0;
     }
     .rct-node-icon * {
